@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Lowque - App specification</title>
+    <style>
+        .spec-flow-wrapper {
+            margin-left: 15px;
+        }
+
+        .spec-flow-expander {
+            margin-left: 5px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .spec-flow-name-header {
+            display: inline;
+        }
+
+        .spec-flow-type-props-wrapper {
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+<div><h2>Specyfikacja przepływów</h2></div>
+<br/>
+<div>
+<div><h3>Comment</h3></div>
+<div class='spec-flow-wrapper'>
+<h4>DeleteOwnComment</h4>
+<div>HTTP method: <strong>GET</strong></div>
+<div>Request URL: <strong>Comment/DeleteOwnComment/{id}</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Response body schema: <strong>DeleteOwnCommentResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>DeleteOwnCommentResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Success: bool</div>
+<div>Comments: List&lt;DeleteCommentInfo&gt;</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>DeleteCommentInfo</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>Author: string</div>
+<div>Time: string</div>
+<div>Content: string</div>
+<div>Deletable: bool</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>PostComment</h4>
+<div>HTTP method: <strong>POST</strong></div>
+<div>Request URL: <strong>Comment/PostComment</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Request body schema: <strong>PostCommentRequestDto</strong></div>
+<div>Response body schema: <strong>PostCommentResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>PostCommentResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Success: bool</div>
+<div>Error: string</div>
+<div>Comments: List&lt;AfterPostCommentInfo&gt;</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>AfterPostCommentInfo</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>Author: string</div>
+<div>Time: string</div>
+<div>Content: string</div>
+<div>Deletable: bool</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>PostCommentRequestDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>ProcessId: int (Required)</div>
+<div>Content: string (Required)</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+</div>
+<div>
+<div><h3>Document</h3></div>
+<div class='spec-flow-wrapper'>
+<h4>DeleteDocument</h4>
+<div>HTTP method: <strong>GET</strong></div>
+<div>Request URL: <strong>Document/DeleteDocument/{id}</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Response body schema: <strong>DeleteDocumentResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>DeleteDocumentResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Success: bool</div>
+<div>Error: string</div>
+<div>Documents: List&lt;AfterDeleteDocumentInfo&gt;</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>AfterDeleteDocumentInfo</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>Name: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>DownloadDocument</h4>
+<div>HTTP method: <strong>POST</strong></div>
+<div>Request URL: <strong>Document/DownloadDocument</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Request body schema: <strong>DownloadDocumentRequestDto</strong></div>
+<div>Response body schema: <strong>DownloadDocumentResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>DownloadDocumentRequestDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>DownloadDocumentResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>FileName: string</div>
+<div>FilePath: string</div>
+<div>FileType: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>UploadDocument</h4>
+<div>HTTP method: <strong>POST</strong></div>
+<div>Request URL: <strong>Document/UploadDocument</strong></div>
+<div>Request body type: <strong>application/x-www-url-formencoded</strong></div>
+<div>Request body schema: <strong>UploadDocumentRequestDto</strong></div>
+<div>Response body schema: <strong>UploadDocumentResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>UploadDocumentResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Success: bool</div>
+<div>Error: string</div>
+<div>Documents: List&lt;AfterUploadDocumentInfo&gt;</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>AfterUploadDocumentInfo</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>Name: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>UploadDocumentRequestDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>File: IFormFile (Required)</div>
+<div>ProcessId: int (Required)</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+</div>
+<div>
+<div><h3>Email</h3></div>
+<div class='spec-flow-wrapper'>
+<h4>SendEmail</h4>
+<div>HTTP method: <strong>POST</strong></div>
+<div>Request URL: <strong>Email/SendEmail</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Request body schema: <strong>SendEmailRequestDto</strong></div>
+<div>Response body schema: <strong>SendEmailResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>SendEmailResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>IsSent: bool</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>SendEmailRequestDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Receivers: List&lt;string&gt; (Required)</div>
+<div>Subject: string (Required, Maximum length: 50)</div>
+<div>Content: string (Required)</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>SendEmailSecond</h4>
+<div>HTTP method: <strong>GET</strong></div>
+<div>Request URL: <strong>Email/SendEmailSecond</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Response body schema: <strong>SendEmailSecondResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>SendEmailSecondResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+</div>
+<div>
+<div><h3>Meeting</h3></div>
+<div class='spec-flow-wrapper'>
+<h4>AddMeeting</h4>
+<div>HTTP method: <strong>POST</strong></div>
+<div>Request URL: <strong>Meeting/AddMeeting</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Request body schema: <strong>AddMeetingRequestDto</strong></div>
+<div>Response body schema: <strong>AddMeetingResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>AfterAddMeetingInfo</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>MeetingTime: string</div>
+<div>IsOnline: bool</div>
+<div>DidTakePlace: bool</div>
+<div>Link: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>AddMeetingRequestDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>ProcessId: int (Required)</div>
+<div>MeetingDate: string (Required)</div>
+<div>MeetingTime: string (Required)</div>
+<div>IsOnline: bool (Required)</div>
+<div>DidTakePlace: bool (Required)</div>
+<div>OfficeId: int?</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>AddMeetingResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Success: bool</div>
+<div>Error: string</div>
+<div>Meetings: List&lt;AfterAddMeetingInfo&gt;</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>DeleteMeeting</h4>
+<div>HTTP method: <strong>GET</strong></div>
+<div>Request URL: <strong>Meeting/DeleteMeeting/{id}</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Response body schema: <strong>DeleteMeetingResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>DeleteMeetingInfo</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>MeetingTime: string</div>
+<div>IsOnline: bool</div>
+<div>DidTakePlace: bool</div>
+<div>Link: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>DeleteMeetingResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Meetings: List&lt;DeleteMeetingInfo&gt;</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>GetMeeting</h4>
+<div>HTTP method: <strong>GET</strong></div>
+<div>Request URL: <strong>Meeting/GetMeeting/{id}</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Response body schema: <strong>GetMeetingResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>GetMeetingResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>MeetingDate: string</div>
+<div>MeetingTime: string</div>
+<div>IsOnline: bool</div>
+<div>OfficeId: int?</div>
+<div>Link: string</div>
+<div>DidTakePlace: bool</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>GetValidOffices</h4>
+<div>HTTP method: <strong>GET</strong></div>
+<div>Request URL: <strong>Meeting/GetValidOffices</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Response body schema: <strong>GetValidOfficesResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>GetValidOfficesResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>ValidOffices: List&lt;ValidOffice&gt;</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>ValidOffice</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Key: int</div>
+<div>Value: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>UpdateMeeting</h4>
+<div>HTTP method: <strong>POST</strong></div>
+<div>Request URL: <strong>Meeting/UpdateMeeting</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Request body schema: <strong>UpdateMeetingRequestDto</strong></div>
+<div>Response body schema: <strong>UpdateMeetingResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>UpdateMeetingInfo</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>MeetingTime: string</div>
+<div>IsOnline: bool</div>
+<div>DidTakePlace: bool</div>
+<div>Link: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>UpdateMeetingRequestDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>DidTakePlace: bool (Required)</div>
+<div>Id: int</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>UpdateMeetingResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Success: bool</div>
+<div>Error: string</div>
+<div>Meetings: List&lt;UpdateMeetingInfo&gt;</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+</div>
+<div>
+<div><h3>Process</h3></div>
+<div class='spec-flow-wrapper'>
+<h4>CreateProcess</h4>
+<div>HTTP method: <strong>POST</strong></div>
+<div>Request URL: <strong>Process/CreateProcess</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Request body schema: <strong>CreateProcessRequestDto</strong></div>
+<div>Response body schema: <strong>CreateProcessResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>CreateProcessResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Success: bool</div>
+<div>Error: string</div>
+<div>NewProcessId: int</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>CreateProcessRequestDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>CandidateFirstName: string (Required, Maximum length: 50)</div>
+<div>CandidateLastName: string (Required, Maximum length: 50)</div>
+<div>CandidateEmail: string (Required, Maximum length: 100)</div>
+<div>CandidatePhoneNumber: string (Required, Maximum length: 20)</div>
+<div>CandidateAge: int (Required)</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>DeleteProcess</h4>
+<div>HTTP method: <strong>GET</strong></div>
+<div>Request URL: <strong>Process/DeleteProcess/{id}</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Response body schema: <strong>DeleteProcessResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>DeleteProcessResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Success: bool</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>GetProcess</h4>
+<div>HTTP method: <strong>GET</strong></div>
+<div>Request URL: <strong>Process/GetProcess/{id}</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Response body schema: <strong>GetProcessResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>MeetingInfo</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>MeetingTime: string</div>
+<div>DidTakePlace: bool</div>
+<div>IsOnline: bool</div>
+<div>Link: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>GetProcessResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>Comments: List&lt;CommentInfo&gt;</div>
+<div>Documents: List&lt;DocumentInfo&gt;</div>
+<div>Meetings: List&lt;MeetingInfo&gt;</div>
+<div>CandidateFirstName: string</div>
+<div>CandidateLastName: string</div>
+<div>CandidateAge: int</div>
+<div>CandidateEmail: string</div>
+<div>CandidatePhoneNumber: string</div>
+<div>ProcessStatus: string</div>
+<div>CreatedAt: string</div>
+<div>UserId: int?</div>
+<div>PreferredEmploymentDimension: string</div>
+<div>PreferredTypeOfContract: string</div>
+<div>PreferredSalary: string</div>
+<div>PreferredStartDate: string</div>
+<div>OfferedEmploymentDimension: string</div>
+<div>OfferedTypeOfContract: string</div>
+<div>OfferedSalary: string</div>
+<div>OfferedStartDate: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>CommentInfo</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>Author: string</div>
+<div>Time: string</div>
+<div>Content: string</div>
+<div>Deletable: bool</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>DocumentInfo</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>Name: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>GetProcesses</h4>
+<div>HTTP method: <strong>POST</strong></div>
+<div>Request URL: <strong>Process/GetProcesses</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Request body schema: <strong>GetProcessesRequestDto</strong></div>
+<div>Response body schema: <strong>GetProcessesResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>GetProcessesProcessData</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Id: int</div>
+<div>Status: string</div>
+<div>Candidate: string</div>
+<div>Owner: string</div>
+<div>CreationDate: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>GetProcessesRequestDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>FilterStatus: string</div>
+<div>FilterCandidate: string</div>
+<div>FilterOwner: int?</div>
+<div>Page: int</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>GetProcessesResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Processes: List&lt;GetProcessesProcessData&gt;</div>
+<div>PagesCount: int</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>GetValidProcessStatuses</h4>
+<div>HTTP method: <strong>GET</strong></div>
+<div>Request URL: <strong>Process/GetValidProcessStatuses</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Response body schema: <strong>GetValidProcessStatusesResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>GetValidProcessStatusesResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>ValidStatuses: List&lt;ValidStatus&gt;</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>ValidStatus</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Key: string</div>
+<div>Value: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>GetValidRecruiters</h4>
+<div>HTTP method: <strong>GET</strong></div>
+<div>Request URL: <strong>Process/GetValidRecruiters</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Response body schema: <strong>GetValidRecruitersResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>ValidRecruiter</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Key: int</div>
+<div>Value: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>GetValidRecruitersResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>ValidRecruiters: List&lt;ValidRecruiter&gt;</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+<div class='spec-flow-wrapper'>
+<h4>SaveProcess</h4>
+<div>HTTP method: <strong>POST</strong></div>
+<div>Request URL: <strong>Process/SaveProcess</strong></div>
+<div>Request body type: <strong>application/json</strong></div>
+<div>Request body schema: <strong>SaveProcessRequestDto</strong></div>
+<div>Response body schema: <strong>SaveProcessResponseDto</strong></div>
+<br/>
+<div>Schemas:</div>
+<br/>
+<div>
+<div>SaveProcessRequestDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>CandidateFirstName: string (Required, Maximum length: 50)</div>
+<div>CandidateLastName: string (Required, Maximum length: 50)</div>
+<div>CandidateAge: int (Required)</div>
+<div>CandidateEmail: string (Required, Maximum length: 100)</div>
+<div>CandidatePhoneNumber: string (Required, Maximum length: 20)</div>
+<div>ProcessStatus: string (Required, Maximum length: 50)</div>
+<div>UserId: int (Required)</div>
+<div>PreferredEmploymentDimension: string (Maximum length: 50)</div>
+<div>PreferredTypeOfContract: string (Maximum length: 50)</div>
+<div>PreferredSalary: string (Maximum length: 50)</div>
+<div>PreferredStartDate: string (Maximum length: 100)</div>
+<div>OfferedEmploymentDimension: string (Maximum length: 50)</div>
+<div>OfferedTypeOfContract: string (Maximum length: 50)</div>
+<div>OfferedSalary: string (Maximum length: 50)</div>
+<div>OfferedStartDate: string (Maximum length: 100)</div>
+<div>Id: int (Required)</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+<div>
+<div>SaveProcessResponseDto</div>
+<div>{</div>
+<div class='spec-flow-type-props-wrapper'>
+<div>Success: bool</div>
+<div>Error: string</div>
+</div>
+<div>}</div>
+</div>
+<br/>
+</div>
+</div>
+
+</body>
+</html>

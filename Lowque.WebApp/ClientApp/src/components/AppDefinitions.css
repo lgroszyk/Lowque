@@ -1,0 +1,20 @@
+﻿#new-app-panel {
+    margin-bottom: 30px;
+}
+
+#app-definitions-table tbody tr {
+    cursor: pointer;
+}
+
+#new-app-form {
+    max-width: 500px;
+}
+
+#deploy-button-wrapper {
+    display: flex;
+    align-items: center
+}
+
+#deploy-button {
+    margin-right: 10px;
+}

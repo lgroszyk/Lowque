@@ -1,0 +1,71 @@
+﻿#flow-wrapper {
+    height: 550px;
+    border: 1px solid #ced4da;
+    position: relative;
+}
+
+#flow-wrapper-header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #fafafa;
+    border-top: 1px solid #ced4da;
+    border-left: 1px solid #ced4da;
+    border-right: 1px solid #ced4da;
+}
+
+#flow-wrapper-header span {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#flow-wrapper-header button {
+    border-radius: 0;
+}
+
+#save-button-wrapper {
+    display: flex;
+    align-items: center
+}
+
+#save-button {
+    margin-right: 10px;
+}
+
+.formula-hints {
+    max-height: 200px;
+    overflow-y: scroll;
+    position: absolute;
+    width: calc(100% - 30px);
+}
+
+#flow-designer-tabs .nav-item {
+    cursor: pointer;
+}
+
+#type-modal {
+    max-width: none !important;
+    padding: 20px;
+}
+
+.modal-error {
+    font-weight: bold;
+    color: red;
+}
+
+.types-name-input {
+    max-width: 300px;
+}
+
+#types-list tbody tr {
+    cursor: pointer;
+}
+
+#types-list tbody td {
+    vertical-align: middle;
+}
+
+#props-list tbody td {
+    vertical-align: middle;
+}
+

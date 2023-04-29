@@ -1,0 +1,30 @@
+﻿#flows-list tbody {
+    cursor: pointer;
+}
+
+#flows-list tbody td {
+    vertical-align: middle;
+}
+
+#spec-modal {
+    max-width: 750px;
+    padding: 20px;
+}
+
+.spec-flow-wrapper {
+    margin-left: 15px;
+}
+
+.spec-flow-expander {
+    font-weight: bold;
+    margin-left: 5px;
+    cursor: pointer;
+}
+
+.spec-flow-name-header {
+    display: inline;
+}
+
+.spec-flow-type-props-wrapper {
+    margin-left: 30px;
+}
